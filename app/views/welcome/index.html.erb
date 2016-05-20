@@ -1,42 +1,43 @@
 <!-- <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p> -->
 
-<div ng-controller="DreamsController">
-
-    <form>
-      <input ng-model="dream.topic" placeholder="Dream Topic">
-      <input ng-model="dream.description" placeholder="Description">
-      <input ng-model="dream.creator" placeholder="Created By?">
-      <input name="dream.code" type="radio" id="test1" />
-        <label for="true">Yes</label>
-      <input name="dream.code" type="radio" id="test2" />
-        <label for="false">No</label>
-      <!-- <div class="input-field col s12" ng-model="dream.code">
-        <select>
-          <option value="" disabled selected>Choose your option</option>
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
-        <label>Does it involve code?</label>
-      </div> -->
-      <!-- <input type="checkbox" ng-model="dream.code" placeholder="Did it involve code?"> -->
-      <input type="submit" ng-click="createDream(dream)" value="Save">
+<div ng-controller="DreamsController" class="page" >
+    <div class="form-container top-section">
+    <form name="createForm">
+      <input ng-model="dream.topic" placeholder="Dream Topic" name="topic">
+      <input ng-model="dream.description" placeholder="Description" name="description">
+      <input ng-model="dream.creator" placeholder="Created By?" name="creator">
+      <div class="row">
+            <label>Did it involve code?</label>
+               <input id="true" type="radio" ng-model="dream.code" value="true">
+               <label for="true">Yes</label>
+               <input id="false" type="radio" ng-model="dream.code" value="false">
+               <label for="false">No</label>
+       </div>
+      <input type="button" class="btn" ng-click="createDream(dream)" value="Save">
     </form>
+    <hr>
+    <hr>
+  </div>
 
-    <span class="dream" ng-repeat="dream in dreams" ng-init="showDes=false">
-      <div class="fatzy" ng-mouseover="showDes=true" ng-mouseleave="showDes=false">
-        <h2>{{ dream.topic}}</h2>
-        <!-- <p>Desciption: {{ dream.description }}</p> -->
-        <div class="showDes" ng-show="showDes">{{dream.description}}</div>
-        <p>Did it involve code? {{ dream.code }}</p>
-        <p>Created by: {{ dream.creator }}</p>
-        <p>Created at: {{dream.created_at }}</p>
-        <button ng-click="deleteDream(dream)">
-          Delete
-        </button>
-      </div>
-
-
+    <div class="div-box">
+    <span class="dream" ng-repeat="dream in dreams">
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      	<div class="flipper">
+          <div class="dream-front" >
+            <h4>{{ dream.topic}}</h4>
+            <p>Created by: {{ dream.creator }}</p>
+            <!-- <p>Did it involve code? {{ dream.code }}</p> -->
+            <p>{{dream.created_at | date:'yyyy-MM-dd'}}</p>
+          </div>
+          <div class="dream-back" >
+            <h5>Dreaming about...</h5>
+            <p>{{dream.description}}</div>
+          </div>
+          <button class="btn deletebtn" ng-click="deleteDream(dream)">
+            Delete
+          </button>
+        </div>
   </span>
-
+    </div>
 </div>

@@ -1,3 +1,77 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .dream-front, .dream-back {
+	width: 300px;
+	height: 200px;
+  // margin: 3em;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.dream-front, .dream-back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.dream-front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+  background-image: url(turqcloud.jpg);
+  background-size: contain;
+}
+
+/* back, initially hidden pane */
+.dream-back {
+	transform: rotateY(180deg);
+  background-color: paleturquoise;
+}
+
+.dream {
+  margin: 2em;
+  display: inline-flex;
+}
+
+.deletebtn {
+  margin-top: 67%;
+  margin-bottom: 1em;
+}
+
+form{
+  width: 50%;
+  margin: auto;
+}
+
+.form-container {
+  width: 100%;
+  top: 180px;
+  background-color: white;
+}
+
+.page {
+  position: relative;
+  padding-top: 30%;
+}
+
+label {
+  font-size: 1em;
+}

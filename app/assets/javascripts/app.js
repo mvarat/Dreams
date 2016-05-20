@@ -14,12 +14,13 @@ dreamApp.controller("DreamsController", ["$scope", "$http", function( $scope, $h
   $scope.deleteDream = function (dream) {
     var dreamID = dream.id;
     $http.delete('/api/dreams/' + dreamID)
-      .success(function (dreamID, status, headers) {
+      .success(function (dreamID) {
       console.log("deleted dream")
     }).then(function(){
       $scope.getDreams();
     })
   };
+
 
   $scope.createDream = function (dream) {
     var newDream = {
@@ -35,9 +36,12 @@ dreamApp.controller("DreamsController", ["$scope", "$http", function( $scope, $h
       .success(function (newDream) {
       console.log("created a new dream")
     }).then(function(){
+      $scope.dream = {}
       $scope.getDreams();
     })
   }
+
+
 
 
 }])
