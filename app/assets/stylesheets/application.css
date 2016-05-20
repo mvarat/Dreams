@@ -24,6 +24,10 @@ svg {
   width: 30%;
 }
 
+p {
+  margin: 0;
+}
+
 path{
   stroke: turquoise;
   stroke-width: 8;
@@ -39,6 +43,22 @@ path{
 }
 
 .dream {
-  display: inline;
-  width: 30%;
+  display: inline-flex;
+}
+
+.fatzy {
+  width: 300px;
+  margin: 3em;
+  display: inline-block;
+  background-image: url(turqcloud.jpg);
+  background-size: contain;
+}
+
+.showDes {
+    border: 1px solid black;
+    width: 300px;
+    background-color: darkcyan;
+    border-radius: 4px;
+    height: 200px;
+    color: white;
 }
