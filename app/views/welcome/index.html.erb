@@ -24,7 +24,8 @@
     <span class="dream" ng-repeat="dream in dreams">
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
       	<div class="flipper">
-          <div class="dream-front" >
+          <div ng-class="dream.code ? 'code-front' : 'dream-front'">
+          <!-- <div class="dream-front" > -->
             <h4>{{ dream.topic}}</h4>
             <p>Created by: {{ dream.creator }}</p>
             <!-- <p>Did it involve code? {{ dream.code }}</p> -->

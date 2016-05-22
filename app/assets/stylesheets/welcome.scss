@@ -10,7 +10,7 @@
 		transform: rotateY(180deg);
 	}
 
-.flip-container, .dream-front, .dream-back {
+.flip-container, .dream-front, .dream-back, .code-front {
 	width: 300px;
 	height: 200px;
   // margin: 3em;
@@ -24,7 +24,7 @@
 }
 
 /* hide back of pane during swap */
-.dream-front, .dream-back {
+.dream-front, .code-front, .dream-back {
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -38,6 +38,16 @@
 	transform: rotateY(0deg);
   background-image: url(turqcloud.jpg);
   background-size: contain;
+}
+
+
+.code-front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+  background-image: url(blackcloud.jpg);
+  background-size: contain;
+  color: turquoise;
 }
 
 /* back, initially hidden pane */
