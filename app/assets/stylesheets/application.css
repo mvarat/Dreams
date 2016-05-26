@@ -20,6 +20,7 @@ body {
 }
 
 svg {
+  border: solid red;
   height: 70%;
   width: 70%;
   position: relative;
