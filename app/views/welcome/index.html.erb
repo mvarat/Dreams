@@ -4,8 +4,8 @@
 <div ng-controller="DreamsController" class="page" >
     <div class="form-container top-section">
     <form name="createForm">
-      <input ng-model="dream.topic" placeholder="Dream Topic" name="topic">
-      <input ng-model="dream.description" placeholder="Description" name="description">
+      <input ng-model="dream.topic" placeholder="Dream Title" name="topic">
+      <input ng-model="dream.description" placeholder="I dreamed that..." name="description">
       <input ng-model="dream.creator" placeholder="Created By?" name="creator">
       <div class="row">
             <label>Did it involve code?</label>
@@ -32,7 +32,7 @@
             <p>{{dream.created_at | date:'yyyy-MM-dd'}}</p>
           </div>
           <div class="dream-back" >
-            <h5>Dreaming about...</h5>
+            <h5>I dreamed that...</h5>
             <p>{{dream.description}}</div>
           </div>
           <button class="btn deletebtn" ng-click="deleteDream(dream)">

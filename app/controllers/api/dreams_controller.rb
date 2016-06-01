@@ -3,6 +3,8 @@ class Api::DreamsController < ApplicationController
  #  welcome_index GET    /welcome/index(.:format)       welcome#index
  #           root GET    /                              welcome#index
  #     api_dreams GET    /api/dreams(.:format)          api/dreams#index
+
+skip_before_action :verify_authenticity_token
  def index
    render json: {dreams: Dream.all }
  end
